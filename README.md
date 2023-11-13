@@ -5,6 +5,8 @@
 We are given a "keygenme-trial.py" python file. Upon opening we see that it is a code for a software named "Arcane Calculator."
 
 Now this software is a trial version which gives us trial featues and additional features that can be accessed upon entering the license key. In general ctf fashion, this license key will be our flag.
+
+
 ![Capture](https://github.com/Hackurman01/ctp-2/assets/144946633/294e7d31-f268-4358-804b-8b871de42f76)
 
 
