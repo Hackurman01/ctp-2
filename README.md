@@ -25,7 +25,7 @@ So looking upon the topic of interest ie. the check_key function, it:
 * Second: It checks the first static part of the key with the template :"picoCTF{1n_7h3_|<3y_of_". So all static 1st part of the key must match. 
 
   The checking and verification part is being done by traversing on the characters of input key which after checking the first static part puts the traversing element 'i' to check on the dynamic part.
-* Lastly: It checks the dynamic part of the key which is checked via a specified 'rule'(the comparison not being direct and also being in a particular unique sequence) by comparing characters of the input key with the username_trial string. The character of the user_key is checked with the characters of the username_trial key which is first put through SHA(Secure Hash Algorithm)-256 encryption function using the hashlib module then put through a hexdigest(). 
+* Lastly: It checks the dynamic part of the key which is checked via a specified 'rule'(the comparison not being direct and also being in a particular unique sequence) by comparing characters of the input key with the username_trial string. The character of the user_key is checked with the characters of the username_trial key which is first put through SHA(Secure Hash Algorithm)-256 encryption function using the hashlib module then put through a hexdigest(),which converts the sha-256 encrypted hash byte object to hexadecimal. 
 
     For example: 
     ```Python
@@ -36,7 +36,7 @@ So looking upon the topic of interest ie. the check_key function, it:
     ```
     In this line the particular key character(5th dynamic character) is checked with the 2nd index(ie the 3rd positioned) character of the hexadecimal converted sha256 hash of the username_trial. 
 
-    Finally if all the characters are verified then the function returns True to the enter_lincense() fucntions which in turn envokes the :         decrypt_full_version(user_key) function.
+    Finally if all the characters are verified then the function returns True to the enter_lincense() functions which in turn envokes the :         decrypt_full_version(user_key) function.
 
 Therefore we must extract the required characters and concat them up with the static parts of the key to get the flag. The code for which would be:
 ```Python
@@ -49,6 +49,11 @@ key_part_dynamic1=hashed[4]+hashed[5]+hashed[3]+hashed[6]+hashed[2]+hashed[7]+ha
 key_full = key_part_static1 + key_part_dynamic1 + key_part_static2
 print(key_full)
 ```
+
+#### Conclusion:
+This challenge introduces us to the encryption methods using the hashlib module and how extra layers of complexity can be added like by using the hexdigest() function.
+
+This challenege is great for a  teaching us which part of the programs are potentially exploitable and which parts of the program can be approached first to get the flag.
 
 
 ###### TODO : test performance on toolbox container"???
